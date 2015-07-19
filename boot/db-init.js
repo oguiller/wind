@@ -60,7 +60,6 @@ exports.initDb = function (numberOfDays) {
                 if (err) return;
                 console.log(result);
                 // return the client to the connection pool for other requests to reuse
-                done();
             });
         });
 
