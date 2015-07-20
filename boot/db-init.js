@@ -26,11 +26,11 @@ exports.createDB = function () {
         });
     });
 
-    client.query("DROP TABLE IF EXISTS data;", function (err, result) {
-        if (err) {
-            return console.error("Unable to drop the table data!!")
-        }
-    });
+    //client.query("DROP TABLE IF EXISTS data;", function (err, result) {
+    //    if (err) {
+    //        return console.error("Unable to drop the table data!!")
+    //    }
+    //});
 
     client.query("CREATE TABLE IF NOT EXISTS data (id BIGINT PRIMARY KEY, date TIMESTAMPTZ, year INTEGER, month SMALLINT, day SMALLINT, hour SMALLINT, value FLOAT);", function (err, result) {
         if (err) {

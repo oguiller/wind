@@ -7,8 +7,8 @@ var express    = require('express')
     , app        = express();                 // define our app using express
 
 // Database first
-dbInit.createDB();
-dbInit.initDb(4);
+//dbInit.createDB();
+//dbInit.initDb(4); // Init db with 4 days data.
 
 // App config afterwards
 app.use(cors());
@@ -27,6 +27,13 @@ router.use(function(req, res, next) {
     console.log('Invoking API.');
     next(); // make sure we go to the next routes and don't stop here
 });
+
+
+var dataController = require('./controllers/data');
+
+router.route('/data/:group')
+    .get(dataController.getData);
+
 
 app.use('/api', router);
 
