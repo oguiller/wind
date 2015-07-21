@@ -28,12 +28,11 @@ router.use(function(req, res, next) {
     next(); // make sure we go to the next routes and don't stop here
 });
 
-
 var dataController = require('./controllers/data');
 
-router.route('/data/:group')
+// The url will look like http://{servername}/api/data/hour/2015-07-17
+router.route('/data/:group/:date')
     .get(dataController.getData);
-
 
 app.use('/api', router);
 
